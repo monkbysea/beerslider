@@ -23,8 +23,9 @@ export class BeerSlider {
             min: '0',
             max: '100'
         })
-        this.handle = this.addElement('span', {
-            class: `${this.prefix}-handle`
+        this.handle = this.addElement('div', {
+            class: `${this.prefix}-handle`,
+            'data-tooltip':'Drag'
         })
         this.onImagesLoad()
     }

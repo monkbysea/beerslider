@@ -151,7 +151,42 @@
     </footer>
   </div>
   <!-- library -->
+  <script>
+    window.onload = function () {
+      setTimeout(function () {
+        $.fn.BeerSlider = function (options) {
+          options = options || {};
+          return this.each(function () {
+            new BeerSlider(this, options);
+          });
+        };
+
+        $(".beer-slider").each(function (index, el) {
+          $(el).BeerSlider({
+            start: $(el).data("start"),
+          });
+          let template = `
+            <div class="beer-handle-carets">
+              <figure>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.66 11.31">
+                <polygon class="cls-1" points="5.66 11.31 0 5.66 5.66 0 5.66 11.31"></polygon>
+                </svg>
+              </figure>
+              <figure>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.66 11.31">
+                  <polygon class="cls-1" points="5.66 11.31 0 5.66 5.66 0 5.66 11.31"></polygon>
+                </svg>
+              </figure>
+            </div>
+              `;
+          
+              $(".beer-handle",this).append(template);
+        });
+      });
+    };
+</script>
   <script src="BeerSlider.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- init -->
   <script>
     new BeerSlider( document.getElementById( "slider" ) );    
