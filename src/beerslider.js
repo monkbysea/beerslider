@@ -77,14 +77,24 @@ export class BeerSlider {
     }
     addListeners () {
         const eventTypes = ['input', 'change']
+        const relatedEventTypes = ['mousedown','mouseup']
         eventTypes.forEach( (i) => {
             this.range.addEventListener( i, () => {this.move()} )
         })
+        
+        relatedEventTypes.forEach( (i) => {
+            this.range.addEventListener( i, () => {this.showHandleCarets()} )
+        })
+        
         window.addEventListener('resize', () => {this.setImgWidth()})
     }
     move () {
         this.revealContainer.style.width = `${this.range.value}%`
         this.handle.style.left = `${this.range.value}%`
         this.range.setAttribute('aria-valuenow', this.range.value)
+        
+    }
+    showHandleCarets(){
+        this.handle.addClass('is-down')
     }
 }
