@@ -1,6 +1,6 @@
 export class BeerSlider {
 
-    constructor (element, {start = '50', prefix = 'beer'} = {}) {
+    constructor (element, {start = '50', prefix = 'comparison'} = {}) {
         this.start = parseInt(start) ? Math.min(100, Math.max(0, parseInt(start))) : 50
         this.prefix = prefix
         if (!element || element.children.length !== 2) {
